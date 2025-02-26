@@ -11,7 +11,7 @@
 <body class="bg-gray-100 p-6">
     <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
         <h2 class="text-xl font-bold mb-4">Login</h2>
-        <form action="actions/login_action.php" method="POST">
+        <form action="../actions/login_action.php" method="POST">
             <div class="mb-4">
                 <label class="block text-gray-700">Email</label>
                 <input type="email" name="email" required class="w-full p-2 border rounded">
