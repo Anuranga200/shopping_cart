@@ -1,4 +1,5 @@
 <?php
+include '../includes/header.php';
 // pages/dashboard.php
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -16,7 +17,7 @@ $posts = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/input.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
 </head>
 <body>
     <h1>Welcome, <?= htmlspecialchars($_SESSION['user_name']) ?>!</h1>

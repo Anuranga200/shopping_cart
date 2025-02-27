@@ -28,8 +28,8 @@ foreach ($cartItems as $item) {
 <head>
     <meta charset="UTF-8">
     <title>Your Cart</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 p-6">
     <div class="container mx-auto">
@@ -55,7 +55,7 @@ foreach ($cartItems as $item) {
                             <td class="p-2 border"><?= htmlspecialchars($item['quantity']) ?></td>
                             <td class="p-2 border">$<?= number_format($item['price'] * $item['quantity'], 2) ?></td>
                             <td class="p-2 border">
-                                <a href="actions/remove_from_cart.php?id=<?= $item['cart_id'] ?>" class="text-red-500">Remove</a>
+                                <a href="../actions/remove_from_cart.php?id=<?= $item['cart_id'] ?>" class="text-red-500">Remove</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -11,13 +11,13 @@ if (!isset($_SESSION['user_id'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/output.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100 p-6">
     <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
         <h2 class="text-xl font-bold mb-4">Create a New Post</h2>
-        <form action="actions/create_post_action.php" method="POST">
+        <form action="../actions/create_post_action.php" method="POST">
             <div class="mb-4">
                 <label class="block text-gray-700">Title</label>
                 <input type="text" name="title" required class="w-full p-2 border rounded">

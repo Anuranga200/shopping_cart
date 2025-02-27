@@ -1,5 +1,6 @@
 <!-- pages/products.php -->
 <?php
+
 session_start();
 require_once '../includes/db.php';
 
@@ -23,7 +24,7 @@ $products = $stmt->fetchAll();
                     <h3 class="font-bold"><?= htmlspecialchars($product['name']) ?></h3>
                     <p>$<?= htmlspecialchars($product['price']) ?></p>
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <form action="actions/add_to_cart.php" method="POST">
+                        <form action="../actions/add_to_cart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
                             <button type="submit" class="mt-2 bg-blue-500 text-white p-1 rounded">Add to Cart</button>
                         </form>
@@ -36,3 +37,4 @@ $products = $stmt->fetchAll();
     </div>
 </body>
 </html>
+
