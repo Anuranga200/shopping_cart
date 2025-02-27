@@ -1,6 +1,9 @@
 <!-- pages/cart.php -->
 <?php
-session_start();
+include '../includes/header.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '../includes/db.php';
 
 if (!isset($_SESSION['user_id'])) {

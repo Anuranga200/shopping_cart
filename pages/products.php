@@ -1,7 +1,10 @@
 <!-- pages/products.php -->
 <?php
+include '../includes/header.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-session_start();
 require_once '../includes/db.php';
 
 $stmt = $pdo->query("SELECT * FROM products");

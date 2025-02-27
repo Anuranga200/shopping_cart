@@ -1,7 +1,10 @@
 <?php
 include '../includes/header.php';
 // pages/dashboard.php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
@@ -25,14 +28,12 @@ $posts = $stmt->fetchAll();
     <h2>Recent Posts</h2>
     <?php if ($posts): ?>
         <?php foreach ($posts as $post): ?>
-
             <div class="post p-4 border rounded mb-4">
                 <h3 class="font-bold"><?= htmlspecialchars($post['title']) ?></h3>
                 <p><?= htmlspecialchars(substr($post['content'], 0, 100)) ?>...</p>
                 <p class="text-sm text-gray-600">By <?= htmlspecialchars($post['author']) ?> on <?= $post['created_at'] ?></p>
                 <a href="view_post.php?id=<?= $post['id'] ?>" class="text-blue-500">Read more</a>
             </div>
-
         <?php endforeach; ?>
     <?php else: ?>
         <p>No posts available.</p>
