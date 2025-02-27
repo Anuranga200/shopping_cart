@@ -1,5 +1,4 @@
 <?php
-// actions/create_post_action.php
 session_start();
 require_once '../includes/db.php';
 

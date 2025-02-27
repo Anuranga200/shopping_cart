@@ -1,4 +1,3 @@
-<!-- pages/products.php -->
 <?php
 include '../includes/header.php';
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,13 +9,7 @@ require_once '../includes/db.php';
 $stmt = $pdo->query("SELECT * FROM products");
 $products = $stmt->fetchAll();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-</head>
+<?php include '../includes/head.php'; ?>
 <body class="bg-gray-100 p-6">
     <div class="container mx-auto">
         <h2 class="text-2xl font-bold mb-4">Products</h2>
@@ -25,7 +18,7 @@ $products = $stmt->fetchAll();
                 <div class="bg-white p-4 rounded shadow">
                     <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="mb-2">
                     <h3 class="font-bold"><?= htmlspecialchars($product['name']) ?></h3>
-                    <p>$<?= htmlspecialchars($product['price']) ?></p>
+                    <p>LKR<?= htmlspecialchars($product['price']) ?></p>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <form action="../actions/add_to_cart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?= $product['id'] ?>">

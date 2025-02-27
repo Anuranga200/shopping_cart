@@ -1,5 +1,4 @@
 <?php
-// actions/remove_from_cart.php
 session_start();
 require_once '../includes/db.php';
 

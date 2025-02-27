@@ -1,16 +1,14 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '../includes/db.php';
 include '../includes/header.php';
-// Ensure an ID is provided
-if (!isset($_GET['id'])) {
-    header("Location: dashboard.php");
-    exit;
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    die("Error: Post ID is missing.");
 }
 
 $post_id = $_GET['id'];
-
-// Retrieve the post along with the author's name
 $stmt = $pdo->prepare("SELECT posts.*, users.name as author FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = ?");
 $stmt->execute([$post_id]);
 $post = $stmt->fetch();
@@ -20,14 +18,7 @@ if (!$post) {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-</head>
-
+<?php include '../includes/head.php'; ?>
 <body class="bg-gray-100 p-6">
     <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
         <h2 class="text-2xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></h2>

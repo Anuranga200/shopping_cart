@@ -1,5 +1,4 @@
 <?php
-// includes/db.php
 $host = 'localhost';
 $db   = 'mini_blog_shop';
 $user = 'root';

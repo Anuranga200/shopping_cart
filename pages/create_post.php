@@ -1,4 +1,3 @@
-<!-- pages/create_post.php -->
 <?php
 include '../includes/header.php';
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,13 +9,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-</head>
+<?php include '../includes/head.php'; ?>
 
 <body class="bg-gray-100 p-6">
     <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
