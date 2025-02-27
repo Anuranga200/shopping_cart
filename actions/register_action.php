@@ -1,5 +1,4 @@
 <?php
-// actions/register_action.php
 require_once '../includes/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -7,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Use prepared statement to insert user
